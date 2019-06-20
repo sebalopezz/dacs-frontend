@@ -1,9 +1,9 @@
 
 const Paciente = { template: `
     <div class="m-5">
-        <div class="loader" v-if="loading">Loading</div>
         <router-link to="/" class="btn btn-success"> < Volver a Login</router-link>
         <br><br>
+        <div class="loader" v-if="loading">Loading</div>
         <div v-if="existe">
             <table class="table ficha">
                 <tr>
@@ -76,11 +76,11 @@ const Paciente = { template: `
             .then(text => {
                 if (text.length == 0){ 
                     this.existe = false; // Si es 0, no existe devolvio NULL
-                    this.loading = false
+                    this.loading = false;
                 } else {
-                    this.historia = JSON.parse(text) // Si no es 0, el response devolvio el objeto
-                    this.existe = true
-                    this.loading = false
+                    this.historia = JSON.parse(text); // Si no es 0, el response devolvio el objeto
+                    this.existe = true;
+                    this.loading = false;
                 }
             })
             /*

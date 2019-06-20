@@ -1,5 +1,5 @@
 
-const Visita = { template: `
+const PacienteVisita = { template: `
 <div class="m-5">
     <h1>Esta es una visita</h1>
     <router-link to="/" class="btn btn-success">Volver a Login</router-link>

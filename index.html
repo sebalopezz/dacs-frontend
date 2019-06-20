@@ -14,9 +14,10 @@
     <!-- Importamos los componentes -->
     <script src="componentes/login.js"></script>
     <script src="componentes/paciente.js"></script>
+    <script src="componentes/pacientevisita.js"></script>
     <script src="componentes/medico.js"></script>
     <script src="componentes/crearhistoria.js"></script>
-    <script src="componentes/visita.js"></script>
+
 
 </head>
 <body>
@@ -57,10 +58,10 @@
         // We'll talk about nested routes later.
         const routes = [
         { path: '/', component: Login },
-        { path: '/medico', component: Medico },
         { path: '/paciente/:id', name:'paciente.id' ,component: Paciente },
-        { path: '/create', component: CrearHistoria },
-        { path: '/visita/:id', name:'visita.id', component: Visita }
+        { path: '/paciente/visita/:id', name:'visita.id', component: PacienteVisita },
+        { path: '/medico', component: Medico },
+        { path: '/create', component: CrearHistoria }
         ]
 
         // 3. Create the router instance and pass the `routes` option
@@ -81,10 +82,10 @@
         router,
         components: {
             Login,
-            Medico,
             Paciente,
-            CrearHistoria,
-            Visita
+            PacienteVisita,
+            Medico,
+            CrearHistoria
         }
     })
 
