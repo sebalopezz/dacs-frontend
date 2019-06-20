@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Importamos los componentes -->
+    <script src="componentes/login.js"></script>
+    <script src="componentes/paciente.js"></script>
+    <script src="componentes/medico.js"></script>
+    <script src="componentes/crearhistoria.js"></script>
+    <script src="componentes/visita.js"></script>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+        
+    <div id="app">
+        <div id="nav">
+            <p>
+                <!-- use router-link component for navigation. -->
+                <!-- specify the link by passing the `to` prop. -->
+                <!-- `<router-link>` will be rendered as an `<a>` tag by default -->
+                <!-- <router-link to="/">Ir a Login</router-link> -->
+                <!-- <router-link to="/medico">Ir a Medicos</router-link> -->
+                <!-- <router-link to="/paciente">Ir a Pacientes</router-link> -->
+            </p>
+        </div>
+        <!-- route outlet -->
+        <!-- component matched by the route will render here -->
+        <router-view></router-view>
+    </div>
+    <script>
+    
+        // 0. If using a module system (e.g. via vue-cli), import Vue and VueRouter
+        // and then call `Vue.use(VueRouter)`.
+
+        // 1. Define route components.
+        // These can be imported from other files
+
+        // separe en la carpeta components/
+        
+
+        // 2. Define some routes
+        // Each route should map to a component. The "component" can
+        // either be an actual component constructor created via
+        // `Vue.extend()`, or just a component options object.
+        // We'll talk about nested routes later.
+        const routes = [
+        { path: '/', component: Login },
+        { path: '/medico', component: Medico },
+        { path: '/paciente/:id', name:'paciente.id' ,component: Paciente },
+        { path: '/create', component: CrearHistoria },
+        { path: '/visita/:id', name:'visita.id', component: Visita }
+        ]
+
+        // 3. Create the router instance and pass the `routes` option
+        // You can pass in additional options here, but let's
+        // keep it simple for now.
+        const router = new VueRouter({
+            routes // short for `routes: routes`
+        })
+
+        // 4. Create and mount the root instance.
+        // Make sure to inject the router with the router option to make the
+        // whole app router-aware.
+        
+
+        
+        const app = new Vue({
+        el: '#app',
+        router,
+        components: {
+            Login,
+            Medico,
+            Paciente,
+            CrearHistoria,
+            Visita
+        }
+    })
+
+        // Now the app has started!
+    </script>
+</body>
+</html>
