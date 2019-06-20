@@ -1,19 +1,19 @@
 
 const Login = {
     template: `
-        <div class="m-5 text-center"> 
-            <input type="radio" id="one" value="paciente" v-model="opcion" checked>
-            <label for="one">Paciente</label>
-            <br>
-            <input type="radio" id="two" value="medico" v-model="opcion">
-            <label for="two">Medico</label>
-            <br>
-            <!-- <span>Eligio: {{ opcion }}</span> -->
-            <h1>Login</h1>
-            <form @submit.prevent="submit">
-                <input type="text" v-model="dni" placeholder="Ingrese ID"><br>
-                <input type="submit" class="btn btn-primary" value="Buscar">
-            </form>
+        <div class="row text-center login-section">
+            <div class="col-md-5 m-auto" >
+                <h1>Historias clínicas</h1>
+                <form @submit.prevent="submit" class="login-form">
+                    <h4>Iniciar sesión</h4>
+                    <input type="radio" id="one" value="paciente" v-model="opcion" checked>
+                    <label for="one" class="mr-5">Paciente</label>
+                    <input type="radio" id="two" value="medico" v-model="opcion">
+                    <label for="two">Medico</label>
+                    <input type="text" v-model="dni" placeholder="Ingrese ID" class="w-100 p-2">
+                    <input type="submit" class="btn btn-primary w-100 p-2" value="Buscar">
+                </form>
+            </div>
         </div>
     `,
     data(){

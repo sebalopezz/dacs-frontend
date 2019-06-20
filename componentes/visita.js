@@ -28,7 +28,7 @@ methods: {
     getVisita: function () {
     console.log('Se cargo la visita');
 
-    fetch('https://young-brook-94379.herokuapp.com/api/visitas/'+this.idvisita)
+    fetch(URL+'visitas/'+this.idvisita)
         .then(response => response.json())
         .then(json => this.visita = json)
     }

@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+body {
+    background-color: rgb(247, 247, 247);
+    font-family: 'Roboto', sans-serif;
+}
+.clickable-row:hover{
+    cursor: pointer;
+    background-color: rgb(163, 255, 147);
+}
+
+/* ============ LOGIN ================ */
+    .login-section{
+        margin-top: 100px;
+    }
+    .login-form{
+        background: #FFFFFF;
+        border: 3px solid #C8C8C8;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding: 30px;
+    }
+    .login-form * {
+        margin: 10px 0px;
+    }
+    .ficha td:first-child{
+        border-right: 4px solid rgb(143, 45, 45,0.7);
+        font-weight: bold;
+    }
+    .ficha{
+        background-color: rgb(250, 249, 231);
+    }

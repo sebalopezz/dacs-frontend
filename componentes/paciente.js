@@ -1,15 +1,33 @@
 
 const Paciente = { template: `
     <div class="m-5">
-        <h1>Esta es su historia clinica</h1>
-        <router-link to="/" class="btn btn-success">Volver a Login</router-link>
-            <p>ID Historia: {{historia.id}}</p>
-            <p>ID Paciente: {{historia.idpaciente}}</p>
-            <p>Fecha Inicio: {{historia.fechainicio}}</p>
-            <p>Grupo sanguineo: {{historia.gruposanguineo}}</p>
-            <p>Observaciones: {{historia.observaciones}}</p>
+        <router-link to="/" class="btn btn-success"> < Volver a Login</router-link>
+        <br><br>
+        <table class="table ficha">
+            <tr>
+                <td class="w-25">ID Historia</td>
+                <td>{{historia.id}}</td>
+            </tr>
+            <tr>
+                <td>ID Paciente</td>
+                <td>{{historia.idpaciente}}</td>
+            </tr>
+            <tr>
+                <td>Fecha Inicio</td>
+                <td>{{historia.fechainicio}}</td>
+            </tr>
+            <tr>
+                <td>Grupo sanguineo</td>
+                <td>{{historia.gruposanguineo}}</td>
+            </tr>
+            <tr>
+                <td>Observaciones</td>
+                <td>{{historia.observaciones}}</td>
+            </tr>
+        </table>
             <h4>Visitas</h4>
             <table class="table">
+            <thead class="thead-dark">
                 <tr>
                     <th>Id</th>
                     <th>Fecha</th>
@@ -18,7 +36,8 @@ const Paciente = { template: `
                     <th>ID Receta</th>
                     <th>ID Medico</th>
                 </tr>
-                <tr v-for="visita in historia.visitas" v-on:click="getVisita(visita.id)">
+            <thead>
+                <tr v-for="visita in historia.visitas" v-on:click="getVisita(visita.id)" class="clickable-row">
                     <td>{{visita.id}}</td>
                     <td>{{visita.fecha}}</td>
                     <td>{{visita.sintomas}}</td>
@@ -41,10 +60,7 @@ const Paciente = { template: `
     methods: {
         getHistoria: function () {
         console.log('Se cargo la historia');
-        // console.log(this.opcion);
-        // console.log(this.dni);
-        // this.buscar = false;
-        fetch('https://young-brook-94379.herokuapp.com/api/historiasclinicas/'+this.dni)
+        fetch(URL+'historiasclinicas/'+this.dni)
             .then(response => response.json())
             .then(json => this.historia = json)
         },
