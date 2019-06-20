@@ -18,7 +18,7 @@ const Login = {
     `,
     data(){
         return{
-            opcion: '', //medico
+            opcion: 'paciente', // o medico
             dni: '',
             buscar: true,
             historias: []
