@@ -3,16 +3,41 @@ const Visita = { template: `
 <div class="m-5">
     <h1>Esta es una visita</h1>
     <router-link to="/" class="btn btn-success">Volver a Login</router-link>
-    <!-- <div v-for="visita in visitas"> -->
-        <p>ID Visita: {{visita.id}}</p>
-        <p>Fecha: {{visita.fecha}}</p>
-        <p>Sintomas: {{visita.sintomas}}</p>
-        <p>Diagnostico: {{visita.diagnostico}}</p>
-        <p>ID Receta: {{visita.idreceta}}</p>
-        <p>ID Medico: {{visita.idmedico}}</p>
-        <p>ID Partida: {{visita.idpartida}}</p>
-        <p>ID Historia Clinica: {{visita.idhistoriaclinica}}</p>
-    <!-- </div> -->
+    <table class="table ficha">
+        <tr>
+            <td class="w-25">ID Visita</td>
+            <td>{{visita.id}}</td>
+        </tr>
+        <tr>
+            <td>Fecha</td>
+            <td>{{visita.fecha}}</td>
+        </tr>
+        <tr>
+            <td>Sintomas</td>
+            <td>{{visita.sintomas}}</td>
+        </tr>
+        <tr>
+            <td>Diagnostico</td>
+            <td>{{visita.diagnostico}}</td>
+        </tr>
+        <tr>
+            <td>ID Receta</td>
+            <td>{{visita.idreceta}}</td>
+        </tr>
+        <tr>
+            <td>ID Medico</td>
+            <td>{{visita.idmedico}}</td>
+        </tr>
+        <tr>
+            <td>ID Partida</td>
+            <td>{{visita.idpartida}}</td>
+        </tr>
+        <tr>
+            <td>ID Historia Clinica</td>
+            <td>{{visita.idhistoriaclinica}}</td>
+        </tr>
+    </table>
+    <h4> Medicamentos </h4>
 </div>
 `,
 data(){
