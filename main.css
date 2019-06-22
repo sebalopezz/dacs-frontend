@@ -91,3 +91,14 @@ body {
     height: 5em;
   }
 }
+
+/* -----Turnos----- */
+#table-turnos{
+  margin: 5%;
+
+}
+#title-turnos{
+  align-self: center;
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
