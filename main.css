@@ -2,6 +2,8 @@
 body {
     background-color: rgb(247, 247, 247);
     font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    padding:0px;
 }
 .clickable-row:hover{
     cursor: pointer;

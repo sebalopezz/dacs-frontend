@@ -6,7 +6,7 @@ const Login = {
                 <h1>Historias clínicas</h1>
                 <form @submit.prevent="submit" class="login-form">
                     <h4>Iniciar sesión</h4>
-                    <input type="radio" id="one" value="paciente" v-model="opcion" checked>
+                    <input type="radio" id="one" value="paciente" v-model="opcion">
                     <label for="one" class="mr-5">Paciente</label>
                     <input type="radio" id="two" value="medico" v-model="opcion">
                     <label for="two">Medico</label>
@@ -27,7 +27,7 @@ const Login = {
     methods: {
         submit: function () {
             if (this.opcion == 'medico') {
-                this.$router.push("/medico");
+                this.$router.push("/medico/pacientes");
             } else {
                 this.$router.push({name: 'paciente.id', params: { id: this.dni }})
             }

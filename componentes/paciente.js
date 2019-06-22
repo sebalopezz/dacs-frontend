@@ -83,15 +83,6 @@ const Paciente = { template: `
                     this.loading = false;
                 }
             })
-            /*
-            .then(response => {
-                if (response.ok) {
-                    response.json()
-                    .then(json => console.log(json))
-                }
-            })
-            .then(response => console.log(response))
-*/
         },
         getVisita: function (idvisita) {
             // idvisita = jQuery(this).closest("tr").find("td:eq(0)").text();
