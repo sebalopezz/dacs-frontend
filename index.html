@@ -16,7 +16,7 @@
     <script src="componentes/paciente.js"></script>
     <script src="componentes/pacientevisita.js"></script>
     <script src="componentes/medico.js"></script>
-    <!-- <script src="componentes/turnos.js"></script> -->
+    <script src="componentes/turnos.js"></script>
     <script src="componentes/pacientes.js"></script>
 
 
@@ -59,7 +59,7 @@
                    
                     // Turnos will be rendered inside Medico's <router-view>
                     // when /medico/:id/turnos is matched
-                    // { path: 'turnos', component: Turnos },
+                    { path: 'turnos', component: Turnos },
                    
                     // Pacientes will be rendered inside Medico's <router-view>
                     // when /medico/:id/pacientes is matched
@@ -92,7 +92,7 @@
             Paciente,
             PacienteVisita,
             Medico,
-            // Turnos,
+            Turnos,
             Pacientes/*,
             RegistrarVisita*/
         }
