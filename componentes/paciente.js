@@ -12,15 +12,15 @@ const Paciente = { template: `
                 </tr>
                 <tr>
                     <td>ID Paciente</td>
-                    <td>{{historia.idpaciente}}</td>
+                    <td>{{historia.pacienteId}}</td>
                 </tr>
                 <tr>
                     <td>Fecha Inicio</td>
-                    <td>{{historia.fechainicio}}</td>
+                    <td>{{historia.fechaInicio}}</td>
                 </tr>
                 <tr>
                     <td>Grupo sanguineo</td>
-                    <td>{{historia.gruposanguineo}}</td>
+                    <td>{{historia.grupoSanguineo}}</td>
                 </tr>
                 <tr>
                     <td>Observaciones</td>
