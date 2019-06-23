@@ -1,7 +1,7 @@
 
 const Pacientes = { template: `
 <div class="m-5">
-    <h3>Historias clínicas por paciente </h3>
+    <h3>Historias clínicas </h3>
     <input type="text" id="myInput" v-on:keyup="filtrar" placeholder="Search for names..">
     <table id="myTable" class="table table-striped">
         <thead>
