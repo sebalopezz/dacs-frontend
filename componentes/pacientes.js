@@ -36,5 +36,8 @@ methods: {
         // idvisita = jQuery(this).closest("tr").find("td:eq(0)").text();
         this.$router.push({name: 'visita.id', params: { id: idvisita }})
     }
-}*/
+}*/,
+    created:function(){
+        console.log(this.$route.params.id)
+    }
 }
