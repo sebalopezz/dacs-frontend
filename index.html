@@ -63,7 +63,8 @@
                    
                     // Pacientes will be rendered inside Medico's <router-view>
                     // when /medico/:id/pacientes is matched
-                    { path: 'pacientes/:id', name:'medico.paciente.id', component: Pacientes },
+                    { path:'pacientes', component:Pacientes },
+                    { path: 'pacientes/:id', name:'medico.paciente.id', component: Historia},
                     // RegistrarVisita will be rendered inside Medico's <router-view>
                     // when /medico/:id/registrarvisita is matched
                     // { path: 'registrarvisita', component: RegistrarVisita }
