@@ -65,8 +65,7 @@ const Turnos={
           });
       },
       atenderVisita:function(idPaciente){
-        console.log(idPAciente);
-        this.$router.push({name: '/medicos/pacientes', params: { id: idPaciente }})
+        this.$router.push({name: 'medico.paciente.id', params: { id: idPaciente }})
       }     
 
     },
