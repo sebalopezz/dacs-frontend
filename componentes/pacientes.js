@@ -16,7 +16,7 @@ const Pacientes = { template: `
             </tr>
         </thead>
         <tbody>
-            <tr v-for="historia in historias">
+            <tr v-for="historia in historias" v-on:click="getHistoria(historia.id)">
                 <td>{{historia.id}}</td>
                 <td>{{historia.pacienteId}}</td>
                 <td> Aca va el nombre</td>
@@ -46,9 +46,9 @@ methods: {
         .then(response => response.json())
         .then(json => this.historias = json)
     },
-    getVisita: function (idvisita) {
+    getHistoria: function (idhistoria) {
         // idvisita = jQuery(this).closest("tr").find("td:eq(0)").text();
-        this.$router.push({name: 'visita.id', params: { id: idvisita }})
+        this.$router.push({name: 'medico.paciente.id', params: { id: idhistoria }})
     },
     filtrar: function () {
         // Declare variables 
