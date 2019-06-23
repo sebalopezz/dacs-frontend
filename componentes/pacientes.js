@@ -71,5 +71,12 @@ methods: {
             } 
         }
     }
+<<<<<<< HEAD
 }
+=======
+}*/,
+    created:function(){
+        console.log(this.$route.params.id)
+    }
+>>>>>>> 0af3cb373145c49bcb39ca826ff6000a6dc49329
 }
