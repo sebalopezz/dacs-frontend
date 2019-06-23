@@ -16,7 +16,7 @@ const Pacientes = { template: `
             </tr>
         </thead>
         <tbody>
-            <tr v-for="historia in historias" v-on:click="getHistoria(historia.id)">
+            <tr v-for="historia in historias" v-on:click="getHistoria(historia.id)" class="clickable-row">
                 <td>{{historia.id}}</td>
                 <td>{{historia.pacienteId}}</td>
                 <td> Aca va el nombre</td>
