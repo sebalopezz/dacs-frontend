@@ -59,7 +59,7 @@ const Turnos={
     methods:{
       getTurnos:function(){
         console.log('Se inicializa y busca el tu')
-        fetch(URL+'historiasclinicas/'+this.dni)
+        fetch(URL+'historiaclinica/'+this.dni)
           .then(response=>{
             this.turnos=response;
           });
