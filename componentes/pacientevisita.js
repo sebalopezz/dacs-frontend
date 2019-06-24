@@ -3,9 +3,9 @@ const PacienteVisita = { template: `
 <div class="m-5">
     <div class="loader" v-if="loading">Loading</div>
     <div v-if="!loading">    
-        <h1>Visita</h1>
         <router-link to="/" class="btn btn-success">Volver a Login</router-link>
-        <table class="table ficha">
+        <h4 class="text-center">Visita</h4>
+        <table class="table table-sm ficha">
             <tr>
                 <td class="w-25">ID Visita</td>
                 <td>{{visita.id}}</td>

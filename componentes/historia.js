@@ -3,9 +3,9 @@ const Historia = { template: `
 <div class="m-5">
     <div class="loader" v-if="loading">Loading</div>
     <div v-if="!loading">
-        <h1>Esta es una historia</h1>
         <router-link to="/" class="btn btn-success">Volver a Login</router-link>
-        <table class="table ficha">
+        <h4 class="text-center"> Historia clinica de {{paciente.nombre}}</h4>
+        <table class="table table-sm ficha">
             <!-- Datos API PACIENTES -->
                 <tr>
                     <td class="w-25"> Nombre y apellido</td>

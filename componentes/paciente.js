@@ -7,7 +7,7 @@ const Paciente = { template: `
         <div v-if="!loading">
             <div v-if="existe">
                 <h4 class="text-center"> Historia clinica de {{paciente.nombre}}</h4>
-                <table class="table ficha">
+                <table class="table table-sm ficha">
                 <!-- Datos API PACIENTES  -->
                     <tr>
                         <td class="w-25"> Nombre y apellido</td>
