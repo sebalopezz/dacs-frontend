@@ -1,6 +1,6 @@
 const Turnos={
     template:`
-<div>
+<div class="m-5">
   <h2 id="title-turnos">Turnos al dia: 22/06</h2>
   <table class="table text-center table-striped" id="table-turnos">
       <thead class="thead-dark">
@@ -54,19 +54,41 @@ const Turnos={
         fechaTurno:'2019-03-15'
       });
      console.log(this.turnos);
-      
+    this.getTurnos();
     },
     methods:{
       getTurnos:function(){
-        console.log('Se inicializa y busca el tu')
-        fetch(URL+'historiaclinica/'+this.dni)
+        const url="http://turnos-cliente-servidor.herokuapp.com/api/turnos/findbyfecha"    
+
+        fetch(url,
+        {method: "GET",
+        headers: {
+          "Accept": "application/json",
+          "fecha": "2019-03-15",
+          "identificador": "1"
+          }
+        })
           .then(response=>{
-            this.turnos=response;
-          });
+            response.json()
+            .then(turnos=>{
+              this.turnos=turnos;
+              console.log(this.turnos)
+            });
+                   
+          })
+          ;
+          
       },
       atenderVisita:function(idPaciente){
-        this.$router.push({name: 'medico.paciente.id', params: { id: idPaciente }})
-      }     
+        // cambiar el estado del turno en la api, a atendido
+        
+        this.$router.push({name: 'medico.paciente.id', params: { id: idPaciente }});
+      },
+      eliminarTurno:function(idTurno){
+        //eliminar o cambiar estado a no atendido.
+
+      }
+
 
     },
     // "2019-06-20T21:41:43.802+0000"

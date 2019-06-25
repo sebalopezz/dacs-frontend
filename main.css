@@ -9,9 +9,6 @@ body {
     cursor: pointer;
     background-color: rgb(219, 219, 219) !important;
 }
-.input-editable{
-  background-color: rgba(0,0,0,0);
-}
 
 /* ============ LOGIN ================ */
     .login-section{
