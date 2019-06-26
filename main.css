@@ -13,6 +13,23 @@ body {
   background-color: rgba(0,0,0,0);
 }
 
+.medicamento-cantidad{
+  width: 30px;
+}
+
+.table-wrapper  {
+  max-height: 300px;
+  overflow-y: auto;
+  width:100%;
+  margin: auto;
+}
+
+.row-btn{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 /* ============ LOGIN ================ */
     .login-section{
         margin-top: 100px;

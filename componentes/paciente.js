@@ -1,10 +1,14 @@
 
 const Paciente = { template: `
     <div class="m-5">
-        <router-link to="/" class="btn btn-success"> < Volver a Login</router-link>
-        <br><br>
         <div class="loader" v-if="loading">Loading</div>
         <div v-if="!loading">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><router-link to="/"> Ingresar </router-link></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Mi historia clinica </li>
+                </ol>
+            </nav>
             <div v-if="existe">
                 <h4 class="text-center"> Historia clinica de {{paciente.nombre}}</h4>
                 <table class="table table-sm ficha">

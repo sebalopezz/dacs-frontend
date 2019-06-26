@@ -3,7 +3,14 @@ const Historia = { template: `
 <div class="m-5">
     <div class="loader" v-if="loading">Loading</div>
     <div v-if="!loading">
-        <router-link to="/" class="btn btn-success">Volver a Login</router-link>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><router-link to="/"> Ingresar </router-link></li>
+                <li class="breadcrumb-item"> <a href="#" @click="$router.go(-1)"> Lista de pacientes </a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Historia clinica </li>
+            </ol>
+        </nav>
+        <router-link :to="{ name: 'registrarvisita.id', params: { idhist: historia.id }}" class="btn btn-success"> Registrar visita</router-link> 
         <h4 class="text-center"> Historia clinica de {{paciente.nombre}}</h4>
         <table class="table table-sm ficha">
             <!-- Datos API PACIENTES -->

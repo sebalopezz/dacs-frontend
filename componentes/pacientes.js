@@ -4,6 +4,12 @@ const Pacientes = { template: `
     <!-- Utilizo un contador para controlar que muestre recien despues de que realizo todos lo fetch para obtener el nombre de cada paciente -->
     <div class="loader" v-if="contador!==historias.length">Loading</div>
     <div v-if="contador==historias.length">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><router-link to="/"> Ingresar </router-link></li>
+                <li class="breadcrumb-item active" aria-current="page"> Lista de pacientes </li>
+            </ol>
+        </nav>
         <h3>Historias clínicas </h3>
         <input type="text" id="myInput" v-on:keyup="filtrar" placeholder="Buscar por nombre...">
         <table id="myTable" class="table table-striped">

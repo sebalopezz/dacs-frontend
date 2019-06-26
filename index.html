@@ -19,6 +19,7 @@
     <script src="componentes/turnos.js"></script>
     <script src="componentes/pacientes.js"></script>
     <script src="componentes/historia.js"></script>
+    <script src="componentes/registrarvisita.js"></script>
 
 
 </head>
@@ -65,10 +66,10 @@
                     // Pacientes will be rendered inside Medico's <router-view>
                     // when /medico/:id/pacientes is matched
                     { path: 'pacientes', component: Pacientes },
-                    { path: 'pacientes/:id',name:'medico.paciente.id', component: Historia }
+                    { path: 'pacientes/:id',name:'medico.paciente.id', component: Historia },
                     // RegistrarVisita will be rendered inside Medico's <router-view>
                     // when /medico/:id/registrarvisita is matched
-                    // { path: 'registrarvisita', component: RegistrarVisita }
+                    { path: 'registrarvisita/:idhist',name:'registrarvisita.id', component: RegistrarVisita }
                 ]
             }
         ]
@@ -96,8 +97,8 @@
             Medico,
             Turnos,
             Pacientes,
-            Historia /*,
-            RegistrarVisita*/
+            Historia,
+            RegistrarVisita
         }
     })
 

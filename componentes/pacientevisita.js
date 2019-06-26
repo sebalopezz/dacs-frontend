@@ -2,8 +2,8 @@
 const PacienteVisita = { template: `
 <div class="m-5">
     <div class="loader" v-if="loading">Loading</div>
-    <div v-if="!loading">    
-        <router-link to="/" class="btn btn-success">Volver a Login</router-link>
+    <div v-if="!loading">
+        <a href="#" @click="$router.go(-1)" class="btn btn-success" > Volver a la historia clinica </a>
         <h4 class="text-center">Visita</h4>
         <table class="table table-sm ficha">
             <tr>
@@ -39,7 +39,7 @@ const PacienteVisita = { template: `
                 <td>{{visita.idhistoriaclinica}}</td>
             </tr>
         </table>
-        <h4> Medicamentos </h4>
+        <h4 class="text-center"> Receta </h4>
     </div>
 </div>
 `,
@@ -47,7 +47,8 @@ data(){
     return{
         idvisita: this.$route.params.id,
         visita: Object,
-        loading: true
+        loading: true,
+        receta: []
     }
 },
 created: function () {
@@ -64,5 +65,5 @@ methods: {
             this.loading = false
         })
     }
-}
+    }
 }
