@@ -1,9 +1,8 @@
 
 const Paciente = { template: `
     <div class="m-5">
-        <router-link to="/" class="btn btn-success"> < Volver a Login</router-link>
-        <br><br>
         <div class="loader" v-if="loading">Loading</div>
+<<<<<<< HEAD
         <div v-if="existe">
             <table class="table ficha">
                 <tr>
@@ -30,6 +29,19 @@ const Paciente = { template: `
             <h4>Visitas</h4>
             <table class="table table-striped">
                 <thead class="thead-dark">
+=======
+        <div v-if="!loading">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><router-link to="/"> Ingresar </router-link></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Mi historia clinica </li>
+                </ol>
+            </nav>
+            <div v-if="existe">
+                <h4 class="text-center"> Historia clinica de {{paciente.nombre}}</h4>
+                <table class="table table-sm ficha">
+                <!-- Datos API PACIENTES  -->
+>>>>>>> 223c3f1490007dbf7047ef0b0663a1cc0a426336
                     <tr>
                         <th>Id</th>
                         <th>Fecha</th>
