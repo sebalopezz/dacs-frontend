@@ -13,3 +13,5 @@ const API_MED = "http://medicamentos.us-east-1.elasticbeanstalk.com/api/medicame
 
 // API de Partidas - Grupo Ian
 const API_PARTIDAS = 'http://medicamentos.us-east-1.elasticbeanstalk.com/api/partidas';
+
+//Nicoalegre
