@@ -1,6 +1,6 @@
 const Turnos={
     template:`
-<div>
+<div class="m-5">
   <h2 id="title-turnos">Turnos al dia: 22/06</h2>
   <table class="table text-center table-striped" id="table-turnos">
       <thead class="thead-dark">
@@ -19,11 +19,11 @@ const Turnos={
           <td>{{turno.nombre}}</td>
           <td>{{turno.hrInicio|filterHora}}</td>
           <td> 
-            <button type="button" class="btn btn-outline-success" v-on:click="atenderVisita(turno.idPaciente)">
+            <button type="button" class="btn btn-outline-success" v-on:click="atenderVisita(turno.id, turno.idPaciente)">
               Atender
             </button>
           </td>
-          <td><button type="button" class="btn btn-outline-danger">Quitar</button></td>
+          <td><button type="button" class="btn btn-outline-danger" v-on:click="eliminarTurno(turno.id)">Quitar</button></td>
         </tr>
       </tbody>
   </table>
@@ -33,43 +33,72 @@ const Turnos={
     data(){
       return{
         turnos:[],
-        atender:'', 
+        atender:'',
+        fecha:''
       }
     },
     created:function(){
-      this.turnos.push({
-        id:10,
-        idPaciente:1,
-        idMedico:10,
-        nombre:'Gerardo Enrique',
-        hrInicio:'2019-06-20T21:41:43.802+0000',
-        fechaTurno:'2019-03-15'
-      });
-      this.turnos.push({
-        id:11,
-        idPaciente:2,
-        idMedico:10,
-        nombre:'Sebastian Lopez',
-        hrInicio:'2019-06-20T21:41:43.802+0000',
-        fechaTurno:'2019-03-15'
-      });
-     console.log(this.turnos);
-      
+      var f= new Date();
+      this.fecha=f.getFullYear()+"-"+f.getMonth()+"-"+f.getDate();
+      this.getTurnos();
     },
     methods:{
       getTurnos:function(){
-        console.log('Se inicializa y busca el tu')
-        fetch(URL+'historiaclinica/'+this.dni)
-          .then(response=>{
-            this.turnos=response;
-          });
-      },
-      atenderVisita:function(idPaciente){
-        this.$router.push({name: 'medico.paciente.id', params: { id: idPaciente }})
-      }     
+        const url="http://turnos-cliente-servidor.herokuapp.com/api/turnos/findbyfecha"    
 
+        fetch(url,
+        {method: "GET",
+        headers: {
+          "Accept": "application/json",
+          "fecha": this.fecha,
+          "identificador": "1"
+          }
+        })
+          .then(response=>{
+            response.json()
+            .then(turnos=>{
+              this.turnos=turnos;
+              console.log(this.turnos)
+            });                   
+          });          
+      },
+      atenderVisita:function(idTurno, idPaciente){
+        // cambiar el estado del turno en la api, a atendido 
+        // const url= ""
+        // fetch(url,{
+        //   method:"POST",
+        //   body:{
+        //     "id":idTurno,
+        //     "estado":"atendido"
+        //   }
+        // })
+        // .then(response=>{
+        //   response.json()
+        //   .then(turnos=>{
+        //     console.log(turnos)
+        //   });                   
+        // }); 
+        this.$router.push({name: 'medico.paciente.id', params: { id: idPaciente }});
+      },
+      eliminarTurno:function(idTurno){
+        //eliminar o cambiar estado a ausente.
+        // const url= ""
+        // fetch(url,{
+        //   method:"POST",
+        //   body:{
+        //     "id":idTurno,
+        //     "estado":"ausente"
+        //   }
+        // })
+        // .then(response=>{
+        //   response.json()
+        //   .then(turnos=>{
+        //     this.turnos=turnos;
+        //     console.log(turnos)
+        //   });                   
+        // }); 
+      }
     },
-    // "2019-06-20T21:41:43.802+0000"
     filters: {
       filterHora: function (value) {
         if (!value) return ''

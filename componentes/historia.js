@@ -36,59 +36,32 @@ const Historia = { template: `
                 </tr>
             <!-- FIN API PACIENTES -->
             <tr>
-                <td class="w-25"> ID Historia</td>
-                <td><input type="text" v-model="historia.id" class="input-editable border"></td>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Sintomas</th>
+                <th>Diagnostico</th>
+                <th>ID Receta</th>
+                <th>ID Medico</th>
             </tr>
-            <tr>
-                <td>ID Paciente</td>
-                <td><input type="text" v-model="historia.pacienteId" class="input-editable border"></td>
+        </thead>
+        <tbody>
+            <tr v-for="visita in historia.visitas" v-on:click="getVisita(visita.id)" class="clickable-row">
+                <td>{{visita.id}}</td>
+                <td>{{visita.fecha}}</td>
+                <td>{{visita.sintomas}}</td>
+                <td>{{visita.diagnostico}}</td>
+                <td>{{visita.idreceta}}</td>
+                <td>{{visita.idmedico}}</td>
             </tr>
-            <tr>
-                <td>Fecha de inicio</td>
-                <td><input type="text" v-model="historia.fechaInicio" class="input-editable border"></td>
-            </tr>
-            <tr>
-                <td>Grupo Sanguineo</td>
-                <td><input type="text" v-model="historia.grupoSanguineo" class="input-editable border"></td>
-            </tr>
-            <tr>
-                <td>Observaciones</td>
-                <td><input type="text" v-model="historia.observaciones" class="input-editable border"></td>
-            </tr>
-        </table>
-        <h4>Visitas</h4>
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Id</th>
-                    <th>Fecha</th>
-                    <th>Sintomas</th>
-                    <th>Diagnostico</th>
-                    <th>ID Receta</th>
-                    <th>ID Medico</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="visita in historia.visitas" v-on:click="getVisita(visita.id)" class="clickable-row">
-                    <td>{{visita.id}}</td>
-                    <td>{{visita.fecha}}</td>
-                    <td>{{visita.sintomas}}</td>
-                    <td>{{visita.diagnostico}}</td>
-                    <td>{{visita.idreceta}}</td>
-                    <td>{{visita.idmedico}}</td>
-                </tr>
-            </tbody>
-        </table>    
-        <h4> Medicamentos </h4>
-    </div>
+        </tbody>
+    </table>    
+    <h4> Medicamentos </h4>
 </div>
 `,
 data(){
     return{
         idhistoria: this.$route.params.id,
-        historia: Object,
-        loading: true,
-        paciente: Object
+        historia: Object
     }
 },
 created: function () {
@@ -98,23 +71,9 @@ methods: {
     getHistoria: function () {
     console.log('Se cargo la historia');
 
-    fetch(URL+'historiaclinica/'+this.idhistoria)
+    fetch(URL+'historiasclinicas/'+this.idhistoria)
         .then(response => response.json())
-        .then(json => {
-            this.historia = json
-            this.loading = false
-            this.getPaciente()
-        })
-    },
-    getVisita: function (idvisita) {
-        // idvisita = jQuery(this).closest("tr").find("td:eq(0)").text();
-        this.$router.push({name: 'visita.id', params: { id: idvisita }})
-    },
-    getPaciente: function () {
-        console.log('Se ejecuto getPaciente');
-        fetch(API_PACIENTES + this.historia.pacienteId)
-            .then(response => response.json())
-            .then(json => this.paciente = json)
+        .then(json => this.historia = json)
     }
 }
 }

@@ -1,14 +1,9 @@
-// Local:
+// En desarrollo usar (Laravel):
 // const URL = "http://localhost:8000/api/";
-// Heroku - seba - Laravel:
+// En produccion usar (API en Heroku):
 const URL = 'https://young-brook-94379.herokuapp.com/api/';
-// .NET - Carlos LS
-// const URL = 'http://23.96.115.20:12550/api/';
 
-// API PACIENTES
-const API_PACIENTES = 'https://young-brook-94379.herokuapp.com/api/pacientes/';
-
-// API de Medicamentos - Grupo Ian
+// API de Medicamentos
 const API_MED = "http://medicamentos.us-east-1.elasticbeanstalk.com/api/medicamentos/";
 
 // API de Partidas - Grupo Ian
