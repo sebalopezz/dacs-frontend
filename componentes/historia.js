@@ -35,6 +35,7 @@ const Historia = { template: `
                     <td>{{paciente.telefono}}</td>
                 </tr>
             <!-- FIN API PACIENTES -->
+            <!-- 
             <tr>
                 <td class="w-25"> ID Historia</td>
                 <td><input type="text" v-model="historia.id" class="input-editable border"></td>
@@ -43,6 +44,7 @@ const Historia = { template: `
                 <td>ID Paciente</td>
                 <td><input type="text" v-model="historia.pacienteId" class="input-editable border"></td>
             </tr>
+             -->
             <tr>
                 <td>Fecha de inicio</td>
                 <td><input type="text" v-model="historia.fechaInicio" class="input-editable border"></td>
@@ -56,7 +58,7 @@ const Historia = { template: `
                 <td><input type="text" v-model="historia.observaciones" class="input-editable border"></td>
             </tr>
         </table>
-        <h4>Visitas</h4>
+        <h4 class="text-center">Visitas</h4>
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -64,8 +66,10 @@ const Historia = { template: `
                     <th>Fecha</th>
                     <th>Sintomas</th>
                     <th>Diagnostico</th>
+                    <!-- 
                     <th>ID Receta</th>
                     <th>ID Medico</th>
+                     -->
                 </tr>
             </thead>
             <tbody>
@@ -74,12 +78,13 @@ const Historia = { template: `
                     <td>{{visita.fecha}}</td>
                     <td>{{visita.sintomas}}</td>
                     <td>{{visita.diagnostico}}</td>
+                    <!--
                     <td>{{visita.idreceta}}</td>
                     <td>{{visita.idmedico}}</td>
+                     -->
                 </tr>
             </tbody>
         </table>    
-        <h4> Medicamentos </h4>
     </div>
 </div>
 `,

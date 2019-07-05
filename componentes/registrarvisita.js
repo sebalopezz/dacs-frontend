@@ -72,7 +72,7 @@ const RegistrarVisita = { template: `
                 </table>
             </div>
             <h4 class="text-center">Añadir medicamento que NO hay en el hospital</h4>
-            <table class="w-100">
+            <table class="otro-medicamento">
                 <td> <input type="text" v-model="otroMedicamento.nombre" placeholder="Nombre"></td>
                 <td><input type="text" v-model="otroMedicamento.droga" placeholder="Droga"></td>
                 <td><input type="text" v-model="otroMedicamento.proporcion" placeholder="Proporcion"></td>
@@ -107,7 +107,8 @@ data(){
         receta: [],
         agregoReceta: false,
         medicamentos: [],
-        otroMedicamento: {}
+        otroMedicamento: {},
+        idmedico: this.$parent.idmedico
     }
 },
 created: function () {
@@ -194,7 +195,22 @@ methods: {
             }
     },
     guardarVisita: function () {
+        fetch(URL+'visita/', {
+            method: 'POST',
+            body: JSON.stringify({
+                fecha: this.visita.fecha,
+                sintomas: this.visita.sintomas,
+                diagnostico: this.visita.diagnostico,
+                medicoId: this.idmedico,
+                historiaClinicaId: this.idhistoria/*,
+                partidaMedicamentoId: 1*/
+            }),
+            headers: {
+            "Content-type": "application/json; charset=UTF-8"
+            }
+        })
         console.log("Se guardo la visita")
+
     },
     agregarOtroMedicamento: function () {
         table = document.getElementById("tbl_agregados");

@@ -6,7 +6,7 @@
 const URL = 'http://23.96.115.20:12550/api/';
 
 // API PACIENTES
-const API_PACIENTES = 'http://localhost:8000/api/pacientes/';
+const API_PACIENTES = 'http://127.0.0.1:8000/api/pacientes/';
 
 // API de Medicamentos - Grupo Ian
 const API_MED = "http://medicamentos.us-east-1.elasticbeanstalk.com/api/medicamentos/";
@@ -16,4 +16,4 @@ const API_PARTIDAS = 'http://medicamentos.us-east-1.elasticbeanstalk.com/api/par
 
 // Version ultima 2
 
-const API_TURNOS = "http://localhost:8000/api/turnos/"
+const API_TURNOS = "http://127.0.0.1:8000/api/turnos/"

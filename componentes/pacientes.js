@@ -1,7 +1,6 @@
 
 const Pacientes = { template: `
 <div class="m-5">
-    <p> {{idmedico}}  </p>
     <!-- Utilizo un contador para controlar que muestre recien despues de que realizo todos lo fetch para obtener el nombre de cada paciente -->
     <div class="loader" v-if="contador!==historias.length">Loading</div>
     <div v-if="contador==historias.length">
