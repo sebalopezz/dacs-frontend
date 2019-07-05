@@ -15,10 +15,10 @@ const Turnos={
     <tbody>
       <tr v-for="(turno, index) in turnos"> 
         <th scope="row">{{index+1}}</th>
-        <td>{{turno.nombre|dato}}</td>
+        <td>{{turno["nombre"].nombre }}</td>
         <td>{{turno.hora|filterHora}}</td>
         <td> 
-          <button type="button" class="btn btn-outline-success" v-on:click="atenderVisita(turno.id, turno.idPaciente)">
+          <button type="button" class="btn btn-outline-success" v-on:click="atenderVisita(turno.id, turno.idpaciente)">
             Atender
           </button>
         </td>
@@ -39,8 +39,7 @@ const Turnos={
       fecha:'',
       sinTurnos:false,
       loading:false,
-      // idMedico:this.$route.parent.params.idMedico,
-      idMedico:1,
+      idMedico:this.$parent.idmedico
     }
   },
   created:function(){
@@ -53,7 +52,7 @@ const Turnos={
       this.loading=true;
       // Api Grupo de historias
       const url="https://young-brook-94379.herokuapp.com/api/turnos/"
-      fetch(url+this.idMedico)
+      fetch(API_TURNOS+this.idMedico)
         .then(response=>{
           response.json()
           .then(turnos=>{

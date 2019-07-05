@@ -56,14 +56,14 @@ created: function () {
 methods: {
     getHistorias: function () {
     console.log('Se cargaron las historias');
-    fetch(URL + 'historiaclinica')
+    fetch(URL + 'historiaclinica/' + this.idmedico + '/m')
         .then(response => response.json())
         .then(json => {
             this.historias = json
             for (i = 0; i < this.historias.length; i++) {
                 console.log(this.historias[i].pacienteId)
                 const index = i
-                fetch('https://young-brook-94379.herokuapp.com/api/pacientes/'+this.historias[i].pacienteId)
+                fetch(API_PACIENTES+this.historias[i].pacienteId)
                     .then(response => response.json())
                     .then(hola => {
                         console.log('Hola'+ index)
