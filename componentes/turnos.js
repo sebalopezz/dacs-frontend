@@ -43,7 +43,7 @@ const Turnos={
     }
   },
   created:function(){
-    this.idMedico='';
+    // this.idMedico='';
     this.fecha= new Date().toLocaleDateString();
     this.getTurnos();
   },
@@ -76,19 +76,19 @@ const Turnos={
     atenderVisita:function(idTurno, idPaciente){
       // cambiar el estado del turno en la api, a atendido 
       // const url= ""
-      // fetch(url,{
-      //   method:"POST",
-      //   body:{
-      //     "id":idTurno,
-      //     "estado":"atendido"
-      //   }
-      // })
-      // .then(response=>{
-      //   response.json()
-      //   .then(turnos=>{
-      //     console.log(turnos)
-      //   });                   
-      // }); 
+      fetch(url,{
+        method:"POST",
+        body:{
+          "id":idTurno,
+          "estado":"atendido"
+        }
+      })
+      .then(response=>{
+        response.json()
+        .then(turnos=>{
+          console.log(turnos)
+        });                   
+      }); 
       this.$router.push({name: 'medico.paciente.id', params: { id: idPaciente }});
     },
     eliminarTurno:function(idTurno){
