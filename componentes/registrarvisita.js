@@ -196,7 +196,21 @@ methods: {
             }
     },
     guardarVisita: function () {
-        console.log("Se guardo la visita")
+    console.log("Se guardo la visita")
+
+    fetch('https://young-brook-94379.herokuapp.com/api/visita', {
+    method: 'POST',
+    body: JSON.stringify({
+    fecha: this.visita.fecha,
+    sintomas: this.visita.sintomas,
+    diagnostico: this.visita.diagnostico,
+    medicoId: 1,
+    historiaClinicaId: 1,
+    partidaMedicamentoId: 1
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }})
     },
     agregarOtroMedicamento: function () {
         table = document.getElementById("tbl_agregados");
