@@ -72,7 +72,7 @@ const RegistrarVisita = { template: `
                 </table>
             </div>
             <h4 class="text-center">Añadir medicamento que NO hay en el hospital</h4>
-            <table>
+            <table class="w-100">
                 <td> <input type="text" v-model="otroMedicamento.nombre" placeholder="Nombre"></td>
                 <td><input type="text" v-model="otroMedicamento.droga" placeholder="Droga"></td>
                 <td><input type="text" v-model="otroMedicamento.proporcion" placeholder="Proporcion"></td>

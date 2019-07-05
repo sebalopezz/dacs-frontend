@@ -15,5 +15,13 @@ const Medico = {
             <router-view></router-view>
         </div>
     `,
+    created: function () {
+        this.$router.push({path: '/medico/'+this.dni+'/pacientes'})
+    },
+    data() {
+        return {
+           idmedico: this.$route.params.idmed
+        }
+    },
 
 }

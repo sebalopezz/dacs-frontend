@@ -53,7 +53,7 @@
             { path: '/', component: Login },
             { path: '/paciente/:id', name:'paciente.id' ,component: Paciente },
             { path: '/paciente/visita/:id', name:'visita.id', component: PacienteVisita },
-            { path: '/medico', component: Medico,
+            { path: '/medico/:idmed', name:'medico.id',component: Medico,
                 children: [
                     // Navbar will be rendered inside Medico's <router-view>
                     // when /medico/:id is matched

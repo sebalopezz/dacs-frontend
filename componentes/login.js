@@ -27,7 +27,7 @@ const Login = {
     methods: {
         submit: function () {
             if (this.opcion == 'medico') {
-                this.$router.push("/medico/pacientes");
+                this.$router.push({name: 'medico.id', params: { idmed: this.dni }})
             } else {
                 this.$router.push({name: 'paciente.id', params: { id: this.dni }})
             }
