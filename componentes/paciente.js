@@ -38,6 +38,7 @@ const Paciente = { template: `
             Error. El ID buscado no existe. Intentelo nuevamente.
         </div>
     </div>
+</div>
     `,
     data(){
         return{
