@@ -76,8 +76,8 @@ const Turnos={
     atenderVisita:function(idTurno, idPaciente){
       // cambiar el estado del turno en la api, a atendido 
       // const url= ""
-      fetch(url,{
-        method:"POST",
+      fetch(API_TURNOS+idTurno ,{
+        method:"PUT",
         body:{
           "id":idTurno,
           "estado":"atendido"
@@ -87,6 +87,7 @@ const Turnos={
         response.json()
         .then(turnos=>{
           console.log(turnos)
+          this.getTurnos()
         });                   
       }); 
       this.$router.push({name: 'medico.paciente.id', params: { id: idPaciente }});
