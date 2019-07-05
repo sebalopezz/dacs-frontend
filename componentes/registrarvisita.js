@@ -71,7 +71,7 @@ const RegistrarVisita = { template: `
                     </tbody>
                 </table>
             </div>
-            <h4>Añadir medicamento que NO hay en el hospital</h4>
+            <h4 class="text-center">Añadir medicamento que NO hay en el hospital</h4>
             <table>
                 <td> <input type="text" v-model="otroMedicamento.nombre" placeholder="Nombre"></td>
                 <td><input type="text" v-model="otroMedicamento.droga" placeholder="Droga"></td>
@@ -81,8 +81,6 @@ const RegistrarVisita = { template: `
                 <td><input type="text" v-model="otroMedicamento.cantidad" placeholder="Cantidad"></td>
                 <td><a class="btn btn-primary" @click="agregarOtroMedicamento" ref="el">++</a></td> 
             </table>
-            <p> {{otroMedicamento.nombre}} </p>
-            <p> {{otroMedicamento.laboratorio}} </p>
             <h4 class="text-center">Receta</h4>
             <table class="table table-striped tabla" id="tbl_agregados">
                     <thead>
