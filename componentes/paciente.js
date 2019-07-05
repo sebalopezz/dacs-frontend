@@ -54,7 +54,7 @@ const Paciente = { template: `
     methods: {
         getHistoria: function () {
         console.log('Se cargo la historia');
-        fetch(URL+'historiasclinicas/'+this.dni)
+        fetch(URL+'historiaclinica/'+this.dni)
             // Paso a texto el response 
             .then(response => response.text())
             .then(text => {
