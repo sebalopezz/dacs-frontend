@@ -71,6 +71,18 @@ const RegistrarVisita = { template: `
                     </tbody>
                 </table>
             </div>
+            <h4>Añadir medicamento que NO hay en el hospital</h4>
+            <table>
+                <td> <input type="text" v-model="otroMedicamento.nombre" placeholder="Nombre"></td>
+                <td><input type="text" v-model="otroMedicamento.droga" placeholder="Droga"></td>
+                <td><input type="text" v-model="otroMedicamento.proporcion" placeholder="Proporcion"></td>
+                <td><input type="text" v-model="otroMedicamento.laboratorio" placeholder="Laboratorio"></td>
+                <td><input type="text" v-model="otroMedicamento.presentacion" placeholder="Presentacion"></td>
+                <td><input type="text" v-model="otroMedicamento.cantidad" placeholder="Cantidad"></td>
+                <td><a class="btn btn-primary" @click="agregarOtroMedicamento" ref="el">++</a></td> 
+            </table>
+            <p> {{otroMedicamento.nombre}} </p>
+            <p> {{otroMedicamento.laboratorio}} </p>
             <h4 class="text-center">Receta</h4>
             <table class="table table-striped tabla" id="tbl_agregados">
                     <thead>
@@ -96,7 +108,8 @@ data(){
         loading: false,
         receta: [],
         agregoReceta: false,
-        medicamentos: []
+        medicamentos: [],
+        otroMedicamento: {}
     }
 },
 created: function () {
@@ -184,6 +197,25 @@ methods: {
     },
     guardarVisita: function () {
         console.log("Se guardo la visita")
+    },
+    agregarOtroMedicamento: function () {
+        table = document.getElementById("tbl_agregados");
+        var proxFila = (document.getElementById("tbl_agregados").rows.length) ;
+        var row = table.insertRow(proxFila);
+                        var cell0 = row.insertCell(0);
+                        var cell1 = row.insertCell(1);
+                        var cell2 = row.insertCell(2);
+                        var cell3 = row.insertCell(3);
+                        var cell4 = row.insertCell(4);
+                        var cell5 = row.insertCell(5);
+                        var cell6 = row.insertCell(6);
+                        cell0.innerHTML = this.otroMedicamento.nombre
+                        cell1.innerHTML = this.otroMedicamento.droga
+                        cell2.innerHTML = this.otroMedicamento.proporcion
+                        cell3.innerHTML = this.otroMedicamento.laboratorio
+                        cell4.innerHTML = this.otroMedicamento.presentacion
+                        cell5.innerHTML = this.otroMedicamento.cantidad
+                        cell6.innerHTML = `<input type="checkbox" disabled>`
     }
 }
 }
