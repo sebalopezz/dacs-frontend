@@ -1,7 +1,7 @@
 const Turnos={
     template:`
 <div class="m-5">
-  <h2 id="title-turnos">Turnos al dia: 22/06</h2>
+  <h2 id="title-turnos">Turnos al dia: {{fecha}} </h2>
   <table class="table text-center table-striped" id="table-turnos">
       <thead class="thead-dark">
         <tr>
@@ -27,38 +27,52 @@ const Turnos={
         </tr>
       </tbody>
   </table>
-  <div class="row" style="justify-content: center">
-</div>
+  <div class="loader" v-if="loading">Loading</div>
+  <div v-if='sinTurnos' class="alert alert-success" role="alert">
+    No hay turnos pendientes
+  </div>
+  <div class="row" style="justify-content: center"></div>
 </div>`,
     data(){
       return{
         turnos:[],
         atender:'',
-        fecha:''
+        fecha:'',
+        sinTurnos:false,
+        loading:false,
       }
     },
     created:function(){
-      var f= new Date();
-      this.fecha=f.getFullYear()+"-"+f.getMonth()+"-"+f.getDate();
+      this.fecha= new Date().toLocaleDateString();
       this.getTurnos();
     },
     methods:{
       getTurnos:function(){
+        this.loading=true;
         const url="http://turnos-cliente-servidor.herokuapp.com/api/turnos/findbyfecha"    
-
+        var f= new Date();
+        fecha=f.getFullYear()+"-"+f.getMonth()+"-"+f.getDate();
         fetch(url,
         {method: "GET",
         headers: {
           "Accept": "application/json",
-          "fecha": this.fecha,
+          "fecha": fecha,
           "identificador": "1"
           }
         })
           .then(response=>{
             response.json()
             .then(turnos=>{
-              this.turnos=turnos;
-              console.log(this.turnos)
+              if (turnos.length>0){
+                this.turnos=turnos;
+                console.log(this.turnos);
+              }else{
+                
+                this.sinTurnos=true;
+                console.log(this.sinTurnos);
+              };
+              this.loading=false;
+              
             });                   
           });          
       },
