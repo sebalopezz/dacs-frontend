@@ -16,8 +16,8 @@ const Turnos={
       <tbody>
         <tr v-for="(turno, index) in turnos"> 
           <th scope="row">{{index+1}}</th>
-          <td>{{turno.nombre}}</td>
-          <td>{{turno.hrInicio|filterHora}}</td>
+          <td>{{turno.nombre|dato}}</td>
+          <td>{{turno.hora|filterHora}}</td>
           <td> 
             <button type="button" class="btn btn-outline-success" v-on:click="atenderVisita(turno.id, turno.idPaciente)">
               Atender
@@ -40,39 +40,38 @@ const Turnos={
         fecha:'',
         sinTurnos:false,
         loading:false,
+        // idMedico:this.$route.parent.params.idMedico,
+        idMedico:1,
       }
     },
     created:function(){
+      this.idMedico='';
       this.fecha= new Date().toLocaleDateString();
       this.getTurnos();
     },
     methods:{
       getTurnos:function(){
         this.loading=true;
-        const url="http://turnos-cliente-servidor.herokuapp.com/api/turnos/findbyfecha"    
-        var f= new Date();
-        fecha=f.getFullYear()+"-"+f.getMonth()+"-"+f.getDate();
-        fetch(url,
-        {method: "GET",
-        headers: {
-          "Accept": "application/json",
-          "fecha": fecha,
-          "identificador": "1"
-          }
-        })
+        // Api Grupo de historias
+        const url="https://young-brook-94379.herokuapp.com/api/turnos/"
+        fetch(url+this.idMedico)
           .then(response=>{
             response.json()
             .then(turnos=>{
-              if (turnos.length>0){
-                this.turnos=turnos;
-                console.log(this.turnos);
-              }else{
-                
-                this.sinTurnos=true;
-                console.log(this.sinTurnos);
-              };
-              this.loading=false;
               
+              if (turnos.length>0){
+                var fecha=new Date().toISOString().slice(0,10);
+                turnos.forEach(turno => {
+                  if(turno['fecha']==fecha){
+                    this.turnos.push(turno);
+                  };
+                });
+              };
+              if(this.turnos.length==0){
+                this.sinTurnos=true;
+              }
+              console.log(this.turnos);
+              this.loading=false;
             });                   
           });          
       },
@@ -116,8 +115,12 @@ const Turnos={
     filters: {
       filterHora: function (value) {
         if (!value) return ''
-        value = value.substring(11,16)
+        value = value.substring(0,5)
         return value
+      },
+      Dato:function(value){
+        if(!value) return 'dato';
       }
+
     }
 }
