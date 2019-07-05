@@ -2,10 +2,32 @@
 body {
     background-color: rgb(247, 247, 247);
     font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    padding:0px;
 }
 .clickable-row:hover{
     cursor: pointer;
     background-color: rgb(219, 219, 219) !important;
+}
+.input-editable{
+  background-color: rgba(0,0,0,0);
+}
+
+.medicamento-cantidad{
+  width: 30px;
+}
+
+.table-wrapper  {
+  max-height: 300px;
+  overflow-y: auto;
+  width:100%;
+  margin: auto;
+}
+
+.row-btn{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 /* ============ LOGIN ================ */
@@ -30,6 +52,13 @@ body {
         background-color: rgb(250, 249, 231);
     }
 
+
+#myInput {
+  width: 100%; /* Full-width */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}    
 
 /* =================== LOADER SPINNER ============= */
 .loader,

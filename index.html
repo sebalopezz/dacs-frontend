@@ -16,7 +16,10 @@
     <script src="componentes/paciente.js"></script>
     <script src="componentes/pacientevisita.js"></script>
     <script src="componentes/medico.js"></script>
-    <script src="componentes/crearhistoria.js"></script>
+    <script src="componentes/turnos.js"></script>
+    <script src="componentes/pacientes.js"></script>
+    <script src="componentes/historia.js"></script>
+    <script src="componentes/registrarvisita.js"></script>
 
 
 </head>
@@ -26,16 +29,6 @@
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
         
     <div id="app">
-        <div id="nav">
-            <p>
-                <!-- use router-link component for navigation. -->
-                <!-- specify the link by passing the `to` prop. -->
-                <!-- `<router-link>` will be rendered as an `<a>` tag by default -->
-                <!-- <router-link to="/">Ir a Login</router-link> -->
-                <!-- <router-link to="/medico">Ir a Medicos</router-link> -->
-                <!-- <router-link to="/paciente">Ir a Pacientes</router-link> -->
-            </p>
-        </div>
         <!-- route outlet -->
         <!-- component matched by the route will render here -->
         <router-view></router-view>
@@ -57,11 +50,28 @@
         // `Vue.extend()`, or just a component options object.
         // We'll talk about nested routes later.
         const routes = [
-        { path: '/', component: Login },
-        { path: '/paciente/:id', name:'paciente.id' ,component: Paciente },
-        { path: '/paciente/visita/:id', name:'visita.id', component: PacienteVisita },
-        { path: '/medico', component: Medico },
-        { path: '/create', component: CrearHistoria }
+            { path: '/', component: Login },
+            { path: '/paciente/:id', name:'paciente.id' ,component: Paciente },
+            { path: '/paciente/visita/:id', name:'visita.id', component: PacienteVisita },
+            { path: '/medico', component: Medico,
+                children: [
+                    // Navbar will be rendered inside Medico's <router-view>
+                    // when /medico/:id is matched
+                    // { path: '', component: Navbar },
+                   
+                    // Turnos will be rendered inside Medico's <router-view>
+                    // when /medico/:id/turnos is matched
+                    { path: 'turnos', component: Turnos },
+                   
+                    // Pacientes will be rendered inside Medico's <router-view>
+                    // when /medico/:id/pacientes is matched
+                    { path: 'pacientes', component: Pacientes },
+                    { path: 'pacientes/:id',name:'medico.paciente.id', component: Historia },
+                    // RegistrarVisita will be rendered inside Medico's <router-view>
+                    // when /medico/:id/registrarvisita is matched
+                    { path: 'registrarvisita/:idhist',name:'registrarvisita.id', component: RegistrarVisita }
+                ]
+            }
         ]
 
         // 3. Create the router instance and pass the `routes` option
@@ -85,7 +95,10 @@
             Paciente,
             PacienteVisita,
             Medico,
-            CrearHistoria
+            Turnos,
+            Pacientes,
+            Historia,
+            RegistrarVisita
         }
     })
 
