@@ -1,35 +1,6 @@
 
 const Historia = { template: `
 <div class="m-5">
-<<<<<<< HEAD
-    <h1>Esta es una historia</h1>
-    <router-link to="/" class="btn btn-success">Volver a Login</router-link>
-    <table class="table ficha">
-        <tr>
-            <td class="w-25">ID Visita</td>
-            <td>{{historia.id}}</td>
-        </tr>
-        <tr>
-            <td>Fecha</td>
-            <td>{{historia.pacienteId}}</td>
-        </tr>
-        <tr>
-            <td>Sintomas</td>
-            <td>{{historia.fechaInicio}}</td>
-        </tr>
-        <tr>
-            <td>Diagnostico</td>
-            <td>{{historia.grupoSanguineo}}</td>
-        </tr>
-        <tr>
-            <td>ID Receta</td>
-            <td>{{historia.observaciones}}</td>
-        </tr>
-    </table>
-    <h4>Visitas</h4>
-    <table class="table table-striped">
-        <thead class="thead-dark">
-=======
     <div class="loader" v-if="loading">Loading</div>
     <div v-if="!loading">
         <nav aria-label="breadcrumb">
@@ -64,7 +35,6 @@ const Historia = { template: `
                     <td>{{paciente.telefono}}</td>
                 </tr>
             <!-- FIN API PACIENTES -->
->>>>>>> 223c3f1490007dbf7047ef0b0663a1cc0a426336
             <tr>
                 <th>Id</th>
                 <th>Fecha</th>

@@ -2,34 +2,6 @@
 const Paciente = { template: `
     <div class="m-5">
         <div class="loader" v-if="loading">Loading</div>
-<<<<<<< HEAD
-        <div v-if="existe">
-            <table class="table ficha">
-                <tr>
-                    <td class="w-25">ID Historia</td>
-                    <td>{{historia.id}}</td>
-                </tr>
-                <tr>
-                    <td>ID Paciente</td>
-                    <td>{{historia.pacienteId}}</td>
-                </tr>
-                <tr>
-                    <td>Fecha Inicio</td>
-                    <td>{{historia.fechaInicio}}</td>
-                </tr>
-                <tr>
-                    <td>Grupo sanguineo</td>
-                    <td>{{historia.grupoSanguineo}}</td>
-                </tr>
-                <tr>
-                    <td>Observaciones</td>
-                    <td>{{historia.observaciones}}</td>
-                </tr>
-            </table>
-            <h4>Visitas</h4>
-            <table class="table table-striped">
-                <thead class="thead-dark">
-=======
         <div v-if="!loading">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -41,7 +13,6 @@ const Paciente = { template: `
                 <h4 class="text-center"> Historia clinica de {{paciente.nombre}}</h4>
                 <table class="table table-sm ficha">
                 <!-- Datos API PACIENTES  -->
->>>>>>> 223c3f1490007dbf7047ef0b0663a1cc0a426336
                     <tr>
                         <th>Id</th>
                         <th>Fecha</th>
