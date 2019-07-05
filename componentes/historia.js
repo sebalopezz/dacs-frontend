@@ -10,7 +10,7 @@ const Historia = { template: `
                 <li class="breadcrumb-item active" aria-current="page"> Historia clinica </li>
             </ol>
         </nav>
-        <router-link :to="{ name: 'registrarvisita.id', params: { idhist: historia.id }}" class="btn btn-success"> Registrar visita</router-link> 
+        <router-link :to="{ name: 'registrarvisita.id', params: { idhist: historia.id }}" class="btn btn-success"> Nueva visita</router-link> 
         <h4 class="text-center"> Historia clinica de {{paciente.nombre}}</h4>
         <table class="table table-sm ficha">
             <!-- Datos API PACIENTES -->
@@ -79,7 +79,6 @@ const Historia = { template: `
                 </tr>
             </tbody>
         </table>    
-        <h4> Medicamentos </h4>
     </div>
 </div>
 `,
