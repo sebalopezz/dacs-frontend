@@ -78,9 +78,12 @@ const Turnos={
       // const url= ""
       fetch(API_TURNOS+idTurno ,{
         method:"PUT",
-        body:{
+        body:JSON.stringify({
           "id":idTurno,
           "estado":"atendido"
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
         }
       })
       .then(response=>{
